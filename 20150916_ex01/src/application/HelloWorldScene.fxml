@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane xmlns="http://javafx.com/javafx/8.0.40" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <AnchorPane prefHeight="400.0" prefWidth="500.0" style="-fx-background-color: #00FF00;">
+         <children>
+            <Label layoutX="199.0" layoutY="193.0" style="-fx-background-color: yellow;" text="103021076 陳奕呈" textFill="BLUE" wrapText="true" />
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>
