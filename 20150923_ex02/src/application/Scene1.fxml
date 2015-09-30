@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.effect.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="525.0" prefWidth="630.0" style="-fx-background-color: rgb(128,200,200);" xmlns="http://javafx.com/javafx/8.0.40" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.SceneController">
+   <children>
+      <Button fx:id="btn_cal" layoutX="473.0" layoutY="109.0" mnemonicParsing="false" onAction="#startCal" prefHeight="30.0" prefWidth="119.0" text="計算" />
+      <Button fx:id="btn_exit" layoutX="473.0" layoutY="146.0" mnemonicParsing="false" onAction="#endScene" prefHeight="30.0" prefWidth="119.0" text="結束" />
+      <TextField fx:id="tf_name" layoutX="74.0" layoutY="36.0" />
+      <TextField fx:id="tf_height" layoutX="74.0" layoutY="73.0" />
+      <TextField fx:id="tf_weight" layoutX="74.0" layoutY="109.0" />
+      <RadioButton fx:id="rad_1" layoutX="308.0" layoutY="40.0" mnemonicParsing="false" selected="true" text="男">
+         <toggleGroup>
+            <ToggleGroup fx:id="group1" />
+         </toggleGroup></RadioButton>
+      <RadioButton fx:id="rad_2" layoutX="359.0" layoutY="40.0" mnemonicParsing="false" text="女" toggleGroup="$group1" />
+      <Label layoutX="37.0" layoutY="40.0" text="姓名" />
+      <Label layoutX="37.0" layoutY="77.0" text="身高" />
+      <Label layoutX="37.0" layoutY="113.0" text="體重" />
+      <TextArea fx:id="jta1" layoutX="38.0" layoutY="195.0" prefHeight="287.0" prefWidth="554.0" />
+      <TextField fx:id="waistline" layoutX="308.0" layoutY="73.0" prefHeight="23.0" prefWidth="134.0" />
+      <Label layoutX="261.0" layoutY="40.0" text="性別" />
+      <Label layoutX="261.0" layoutY="77.0" text="腰圍" />
+   </children>
+   <opaqueInsets>
+      <Insets />
+   </opaqueInsets>
+   <padding>
+      <Insets top="400.0" />
+   </padding>
+</AnchorPane>

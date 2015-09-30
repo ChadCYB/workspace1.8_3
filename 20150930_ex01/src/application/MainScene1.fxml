@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+
+<BorderPane prefHeight="418.0" prefWidth="492.0" xmlns="http://javafx.com/javafx/8.0.40" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.SceneController">
+   <center>
+      <GridPane prefHeight="193.0" prefWidth="413.0" BorderPane.alignment="CENTER">
+        <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <Label text="餐點">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Label>
+            <Label text="數量" GridPane.columnIndex="1">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Label>
+            <Label text="辣度" GridPane.columnIndex="2">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+               <GridPane.margin>
+                  <Insets left="10.0" />
+               </GridPane.margin>
+            </Label>
+            <CheckBox fx:id="check1" mnemonicParsing="false" onAction="#act1" text="牛肉麵" GridPane.rowIndex="1">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </CheckBox>
+            <CheckBox fx:id="check2" mnemonicParsing="false" onAction="#act2" text="陽春麵" GridPane.rowIndex="2">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </CheckBox>
+            <CheckBox fx:id="check3" mnemonicParsing="false" onAction="#act3" text="榨菜肉絲麵" GridPane.rowIndex="3">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </CheckBox>
+            <CheckBox fx:id="check4" mnemonicParsing="false" onAction="#act4" text="傻瓜麵" GridPane.rowIndex="4">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </CheckBox>
+            <CheckBox fx:id="check5" mnemonicParsing="false" onAction="#act5" text="養生麵" GridPane.rowIndex="5">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </CheckBox>
+            <TextField fx:id="txt1" disable="true" prefWidth="135.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <TextField fx:id="txt2" disable="true" prefWidth="164.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            <TextField fx:id="txt3" disable="true" prefWidth="164.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+            <TextField fx:id="txt4" disable="true" prefWidth="164.0" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+            <TextField fx:id="txt5" disable="true" prefWidth="157.0" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+            <RadioButton fx:id="radio1" mnemonicParsing="false" text="微辣" GridPane.columnIndex="2" GridPane.rowIndex="1">
+               <font>
+                  <Font size="16.0" />
+               </font>
+               <GridPane.margin>
+                  <Insets left="10.0" />
+               </GridPane.margin>
+               <toggleGroup>
+                  <ToggleGroup fx:id="rg1" />
+               </toggleGroup>
+            </RadioButton>
+            <RadioButton fx:id="radio2" mnemonicParsing="false" text="有點辣" toggleGroup="$rg1" GridPane.columnIndex="2" GridPane.rowIndex="2">
+               <font>
+                  <Font size="16.0" />
+               </font>
+               <GridPane.margin>
+                  <Insets left="10.0" />
+               </GridPane.margin>
+            </RadioButton>
+            <RadioButton fx:id="radio3" mnemonicParsing="false" text="辣到流汗" toggleGroup="$rg1" GridPane.columnIndex="2" GridPane.rowIndex="3">
+               <font>
+                  <Font size="16.0" />
+               </font>
+               <GridPane.margin>
+                  <Insets left="10.0" />
+               </GridPane.margin>
+            </RadioButton>
+            <RadioButton fx:id="radio4" mnemonicParsing="false" text="辣死你" toggleGroup="$rg1" GridPane.columnIndex="2" GridPane.rowIndex="4">
+               <font>
+                  <Font size="16.0" />
+               </font>
+               <GridPane.margin>
+                  <Insets left="10.0" />
+               </GridPane.margin>
+            </RadioButton>
+            <RadioButton fx:id="radio5" mnemonicParsing="false" text="地獄的試煉" toggleGroup="$rg1" GridPane.columnIndex="2" GridPane.rowIndex="5">
+               <font>
+                  <Font size="16.0" />
+               </font>
+               <GridPane.margin>
+                  <Insets left="10.0" />
+               </GridPane.margin>
+            </RadioButton>
+            <Button fx:id="btnOK" mnemonicParsing="false" onAction="#btnSubmmit" prefHeight="31.0" prefWidth="136.0" text="確定" GridPane.columnIndex="2" GridPane.rowIndex="6">
+               <GridPane.margin>
+                  <Insets left="10.0" />
+               </GridPane.margin>
+            </Button>
+         </children>
+      </GridPane>
+   </center>
+   <bottom>
+      <TextArea fx:id="fta" prefHeight="177.0" prefWidth="472.0" BorderPane.alignment="CENTER">
+         <BorderPane.margin>
+            <Insets top="10.0" />
+         </BorderPane.margin>
+      </TextArea>
+   </bottom>
+   <padding>
+      <Insets bottom="10.0" left="10.0" right="10.0" />
+   </padding>
+</BorderPane>
