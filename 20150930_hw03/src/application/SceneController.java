@@ -1,9 +1,7 @@
 package application;
 
-import java.awt.event.ActionEvent;
-
 import javafx.fxml.FXML;
-import javafx.event.*;
+import javafx.event.ActionEvent;
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.ComboBox;
@@ -72,11 +70,14 @@ public class SceneController {
     private Button btn11;
     
     void initialize() {
-    	assert combo1 != null : "fx:id=\"combo1\" was not injected: check your FXML file 'MainScence1.fxml'.";
-        // Initialize your logic here: all @FXML variables will have been injected
-        combo1.getItems().clear();
-        combo1.getItems().addAll("0","Mick Jagger","David Bowie");   
-
+    	combo1.getItems().removeAll(combo1.getItems());
+        combo1.getItems().addAll("AAA", "BBB", "CCC");
+        combo1.getSelectionModel().select("AAA");
     }
+    @FXML
+    void endScene(ActionEvent event) {
+    	System.exit(0);
+    }
+
 
 }

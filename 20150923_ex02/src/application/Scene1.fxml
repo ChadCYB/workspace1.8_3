@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="525.0" prefWidth="630.0" style="-fx-background-color: rgb(128,200,200);" xmlns="http://javafx.com/javafx/8.0.40" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.SceneController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="525.0" prefWidth="630.0" style="-fx-background-color: rgb(128,200,200);" xmlns="http://javafx.com/javafx/8.0.40" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.Scene1Controller">
    <children>
       <Button fx:id="btn_cal" layoutX="473.0" layoutY="109.0" mnemonicParsing="false" onAction="#startCal" prefHeight="30.0" prefWidth="119.0" text="計算" />
       <Button fx:id="btn_exit" layoutX="473.0" layoutY="146.0" mnemonicParsing="false" onAction="#endScene" prefHeight="30.0" prefWidth="119.0" text="結束" />
