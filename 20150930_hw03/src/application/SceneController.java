@@ -1,6 +1,8 @@
 package application;
 
 import javafx.fxml.FXML;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
@@ -8,7 +10,7 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextArea;
 
 public class SceneController {
-
+	ObservableList<String> msl = FXCollections.observableArrayList("AA","BB","CC");
     @FXML
     private TextArea jta1;
 
@@ -19,7 +21,7 @@ public class SceneController {
     private CheckBox checkBox1;
 
     @FXML
-    private ComboBox<String> combo1;
+    private ComboBox combo1;
 
     @FXML
     private ComboBox<String> combo2;
@@ -70,9 +72,8 @@ public class SceneController {
     private Button btn11;
     
     void initialize() {
-    	combo1.getItems().removeAll(combo1.getItems());
-        combo1.getItems().addAll("AAA", "BBB", "CCC");
-        combo1.getSelectionModel().select("AAA");
+    	combo1.setValue("AA");
+    	combo1.setItems(msl);
     }
     @FXML
     void endScene(ActionEvent event) {

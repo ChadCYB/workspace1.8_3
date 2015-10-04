@@ -1,218 +1,220 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.*?>
 <?import javafx.scene.text.*?>
 <?import javafx.scene.effect.*?>
 <?import javafx.geometry.*?>
-<?import javafx.scene.control.*?>
 <?import java.lang.*?>
+<?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
-<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.collections.FXCollections ?>
 
 <BorderPane prefHeight="624.0" prefWidth="663.0" style="-fx-background-color: #47C7B2;" xmlns="http://javafx.com/javafx/8.0.40" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.SceneController">
-   <bottom>
-      <TextArea fx:id="jta1" prefHeight="216.0" prefWidth="643.0" BorderPane.alignment="CENTER">
-         <BorderPane.margin>
-            <Insets top="10.0" />
-         </BorderPane.margin>
-      </TextArea>
-   </bottom>
-   <padding>
-      <Insets bottom="10.0" left="10.0" right="10.0" />
-   </padding>
-   <top>
-      <GridPane prefHeight="134.0" prefWidth="643.0" BorderPane.alignment="CENTER">
-        <columnConstraints>
-          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-        </columnConstraints>
-        <rowConstraints>
-          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-        </rowConstraints>
-         <children>
-            <Label text="字型">
-               <padding>
-                  <Insets left="5.0" />
-               </padding>
-            </Label>
-            <Label text="風格" GridPane.columnIndex="1">
-               <padding>
-                  <Insets left="5.0" />
-               </padding>
-            </Label>
-            <Label text="大小" GridPane.columnIndex="2">
-               <padding>
-                  <Insets left="5.0" />
-               </padding>
-            </Label>
-            <Label text="前景色" GridPane.rowIndex="2">
-               <padding>
-                  <Insets left="5.0" />
-               </padding>
-            </Label>
-            <Label text="背景色" GridPane.columnIndex="1" GridPane.rowIndex="2">
-               <padding>
-                  <Insets left="5.0" />
-               </padding>
-            </Label>
-            <Button fx:id="btnEnd" mnemonicParsing="false" onAction="#endScene" prefHeight="23.0" prefWidth="295.0" text="結束" GridPane.columnIndex="2" GridPane.rowIndex="3">
-               <GridPane.margin>
-                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-               </GridPane.margin>
-            </Button>
-            <CheckBox fx:id="checkBox1" mnemonicParsing="false" text="可編輯" GridPane.columnIndex="2" GridPane.rowIndex="2">
-               <padding>
-                  <Insets left="5.0" />
-               </padding>
-            </CheckBox>
-            <ComboBox fx:id="combo1" prefHeight="23.0" prefWidth="260.0" GridPane.rowIndex="1">
-               <GridPane.margin>
-                  <Insets left="5.0" right="5.0" />
-               </GridPane.margin>
-            </ComboBox>
-            <ComboBox fx:id="combo2" prefHeight="23.0" prefWidth="259.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
-               <GridPane.margin>
-                  <Insets left="5.0" right="5.0" />
-               </GridPane.margin>
-            </ComboBox>
-            <ComboBox fx:id="combo3" prefHeight="23.0" prefWidth="272.0" GridPane.columnIndex="2" GridPane.rowIndex="1">
-               <GridPane.margin>
-                  <Insets left="5.0" right="5.0" />
-               </GridPane.margin>
-            </ComboBox>
-            <ComboBox fx:id="combo4" prefHeight="23.0" prefWidth="299.0" GridPane.rowIndex="3">
-               <GridPane.margin>
-                  <Insets left="5.0" right="5.0" />
-               </GridPane.margin>
-            </ComboBox>
-            <ComboBox fx:id="combo5" prefHeight="23.0" prefWidth="254.0" GridPane.columnIndex="1" GridPane.rowIndex="3">
-               <GridPane.margin>
-                  <Insets left="5.0" right="5.0" />
-               </GridPane.margin>
-            </ComboBox>
-         </children>
-         <padding>
-            <Insets bottom="5.0" />
-         </padding>
-      </GridPane>
-   </top>
-   <center>
-      <GridPane prefHeight="139.0" prefWidth="643.0" BorderPane.alignment="CENTER">
-        <columnConstraints>
-          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-        </columnConstraints>
-        <rowConstraints>
-          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-        </rowConstraints>
-         <children>
-            <Button fx:id="btn0" mnemonicParsing="false" prefHeight="222.0" prefWidth="457.0" text="0">
-               <GridPane.margin>
-                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-               </GridPane.margin>
-               <font>
-                  <Font size="18.0" />
-               </font>
-            </Button>
-            <Button fx:id="btn1" mnemonicParsing="false" prefHeight="219.0" prefWidth="466.0" text="1" GridPane.columnIndex="1">
-               <GridPane.margin>
-                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-               </GridPane.margin>
-               <font>
-                  <Font size="18.0" />
-               </font>
-            </Button>
-            <Button fx:id="btn2" mnemonicParsing="false" prefHeight="239.0" prefWidth="480.0" text="2" GridPane.columnIndex="2">
-               <GridPane.margin>
-                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-               </GridPane.margin>
-               <font>
-                  <Font size="18.0" />
-               </font>
-            </Button>
-            <Button fx:id="btn3" mnemonicParsing="false" prefHeight="208.0" prefWidth="474.0" text="3" GridPane.rowIndex="1">
-               <GridPane.margin>
-                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-               </GridPane.margin>
-               <font>
-                  <Font size="18.0" />
-               </font>
-            </Button>
-            <Button fx:id="btn4" mnemonicParsing="false" prefHeight="210.0" prefWidth="452.0" text="4" GridPane.columnIndex="1" GridPane.rowIndex="1">
-               <GridPane.margin>
-                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-               </GridPane.margin>
-               <font>
-                  <Font size="18.0" />
-               </font>
-            </Button>
-            <Button fx:id="btn5" mnemonicParsing="false" prefHeight="234.0" prefWidth="478.0" text="5" GridPane.columnIndex="2" GridPane.rowIndex="1">
-               <GridPane.margin>
-                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-               </GridPane.margin>
-               <font>
-                  <Font size="18.0" />
-               </font>
-            </Button>
-            <Button fx:id="btn6" mnemonicParsing="false" prefHeight="210.0" prefWidth="428.0" text="6" GridPane.rowIndex="2">
-               <GridPane.margin>
-                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-               </GridPane.margin>
-               <font>
-                  <Font size="18.0" />
-               </font>
-            </Button>
-            <Button fx:id="btn7" mnemonicParsing="false" prefHeight="264.0" prefWidth="477.0" text="7" GridPane.columnIndex="1" GridPane.rowIndex="2">
-               <GridPane.margin>
-                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-               </GridPane.margin>
-               <font>
-                  <Font size="18.0" />
-               </font>
-            </Button>
-            <Button fx:id="btn8" mnemonicParsing="false" prefHeight="224.0" prefWidth="403.0" text="8" GridPane.columnIndex="2" GridPane.rowIndex="2">
-               <GridPane.margin>
-                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-               </GridPane.margin>
-               <font>
-                  <Font size="18.0" />
-               </font>
-            </Button>
-            <Button fx:id="btn9" mnemonicParsing="false" prefHeight="205.0" prefWidth="451.0" text="9" GridPane.rowIndex="3">
-               <GridPane.margin>
-                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-               </GridPane.margin>
-               <font>
-                  <Font size="18.0" />
-               </font>
-            </Button>
-            <Button fx:id="btn10" mnemonicParsing="false" prefHeight="275.0" prefWidth="482.0" text="_" GridPane.columnIndex="1" GridPane.rowIndex="3">
-               <GridPane.margin>
-                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-               </GridPane.margin>
-               <font>
-                  <Font size="18.0" />
-               </font>
-            </Button>
-            <Button fx:id="btn11" mnemonicParsing="false" prefHeight="278.0" prefWidth="479.0" text="\@" GridPane.columnIndex="2" GridPane.rowIndex="3">
-               <GridPane.margin>
-                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-               </GridPane.margin>
-               <font>
-                  <Font size="18.0" />
-               </font>
-            </Button>
-         </children>
-         <padding>
-            <Insets top="5.0" />
-         </padding>
-      </GridPane>
-   </center>
+	<bottom>
+		<TextArea fx:id="jta1" prefHeight="216.0" prefWidth="643.0" BorderPane.alignment="CENTER">
+			<BorderPane.margin>
+				<Insets top="10.0" />
+			</BorderPane.margin>
+		</TextArea>
+	</bottom>
+	<padding>
+		<Insets bottom="10.0" left="10.0" right="10.0" />
+	</padding>
+	<top>
+		<GridPane prefHeight="134.0" prefWidth="643.0" BorderPane.alignment="CENTER">
+			<columnConstraints>
+				<ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+				<ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+				<ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+			</columnConstraints>
+			<rowConstraints>
+				<RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+				<RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+				<RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+				<RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+			</rowConstraints>
+			<children>
+				<Label text="字型">
+					<padding>
+						<Insets left="5.0" />
+					</padding>
+				</Label>
+				<Label text="風格" GridPane.columnIndex="1">
+					<padding>
+						<Insets left="5.0" />
+					</padding>
+				</Label>
+				<Label text="大小" GridPane.columnIndex="2">
+					<padding>
+						<Insets left="5.0" />
+					</padding>
+				</Label>
+				<Label text="前景色" GridPane.rowIndex="2">
+					<padding>
+						<Insets left="5.0" />
+					</padding>
+				</Label>
+				<Label text="背景色" GridPane.columnIndex="1" GridPane.rowIndex="2">
+					<padding>
+						<Insets left="5.0" />
+					</padding>
+				</Label>
+				<Button fx:id="btnEnd" mnemonicParsing="false" onAction="#endScene" prefHeight="23.0" prefWidth="295.0" text="結束" GridPane.columnIndex="2" GridPane.rowIndex="3">
+					<GridPane.margin>
+						<Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+					</GridPane.margin>
+				</Button>
+				<CheckBox fx:id="checkBox1" mnemonicParsing="false" text="可編輯" GridPane.columnIndex="2" GridPane.rowIndex="2">
+					<padding>
+						<Insets left="5.0" />
+					</padding>
+				</CheckBox>
+				<ComboBox fx:id="combo1" prefHeight="23.0" prefWidth="260.0" promptText="combo1" GridPane.rowIndex="1">
+					<GridPane.margin>
+						<Insets left="5.0" right="5.0" />
+
+					</GridPane.margin>
+				</ComboBox>
+				<ComboBox fx:id="combo2" prefHeight="23.0" prefWidth="259.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+					<GridPane.margin>
+						<Insets left="5.0" right="5.0" />
+					</GridPane.margin>
+				</ComboBox>
+				<ComboBox fx:id="combo3" prefHeight="23.0" prefWidth="272.0" GridPane.columnIndex="2" GridPane.rowIndex="1">
+					<GridPane.margin>
+						<Insets left="5.0" right="5.0" />
+					</GridPane.margin>
+				</ComboBox>
+				<ComboBox fx:id="combo4" prefHeight="23.0" prefWidth="299.0" GridPane.rowIndex="3">
+					<GridPane.margin>
+						<Insets left="5.0" right="5.0" />
+					</GridPane.margin>
+				</ComboBox>
+				<ComboBox fx:id="combo5" prefHeight="23.0" prefWidth="254.0" GridPane.columnIndex="1" GridPane.rowIndex="3">
+					<GridPane.margin>
+						<Insets left="5.0" right="5.0" />
+					</GridPane.margin>
+				</ComboBox>
+			</children>
+			<padding>
+				<Insets bottom="5.0" />
+			</padding>
+		</GridPane>
+	</top>
+	<center>
+		<GridPane prefHeight="139.0" prefWidth="643.0" BorderPane.alignment="CENTER">
+			<columnConstraints>
+				<ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+				<ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+				<ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+			</columnConstraints>
+			<rowConstraints>
+				<RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+				<RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+				<RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+				<RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+			</rowConstraints>
+			<children>
+				<Button fx:id="btn0" mnemonicParsing="false" prefHeight="222.0" prefWidth="457.0" text="0">
+					<GridPane.margin>
+						<Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+					</GridPane.margin>
+					<font>
+						<Font size="18.0" />
+					</font>
+				</Button>
+				<Button fx:id="btn1" mnemonicParsing="false" prefHeight="219.0" prefWidth="466.0" text="1" GridPane.columnIndex="1">
+					<GridPane.margin>
+						<Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+					</GridPane.margin>
+					<font>
+						<Font size="18.0" />
+					</font>
+				</Button>
+				<Button fx:id="btn2" mnemonicParsing="false" prefHeight="239.0" prefWidth="480.0" text="2" GridPane.columnIndex="2">
+					<GridPane.margin>
+						<Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+					</GridPane.margin>
+					<font>
+						<Font size="18.0" />
+					</font>
+				</Button>
+				<Button fx:id="btn3" mnemonicParsing="false" prefHeight="208.0" prefWidth="474.0" text="3" GridPane.rowIndex="1">
+					<GridPane.margin>
+						<Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+					</GridPane.margin>
+					<font>
+						<Font size="18.0" />
+					</font>
+				</Button>
+				<Button fx:id="btn4" mnemonicParsing="false" prefHeight="210.0" prefWidth="452.0" text="4" GridPane.columnIndex="1" GridPane.rowIndex="1">
+					<GridPane.margin>
+						<Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+					</GridPane.margin>
+					<font>
+						<Font size="18.0" />
+					</font>
+				</Button>
+				<Button fx:id="btn5" mnemonicParsing="false" prefHeight="234.0" prefWidth="478.0" text="5" GridPane.columnIndex="2" GridPane.rowIndex="1">
+					<GridPane.margin>
+						<Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+					</GridPane.margin>
+					<font>
+						<Font size="18.0" />
+					</font>
+				</Button>
+				<Button fx:id="btn6" mnemonicParsing="false" prefHeight="210.0" prefWidth="428.0" text="6" GridPane.rowIndex="2">
+					<GridPane.margin>
+						<Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+					</GridPane.margin>
+					<font>
+						<Font size="18.0" />
+					</font>
+				</Button>
+				<Button fx:id="btn7" mnemonicParsing="false" prefHeight="264.0" prefWidth="477.0" text="7" GridPane.columnIndex="1" GridPane.rowIndex="2">
+					<GridPane.margin>
+						<Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+					</GridPane.margin>
+					<font>
+						<Font size="18.0" />
+					</font>
+				</Button>
+				<Button fx:id="btn8" mnemonicParsing="false" prefHeight="224.0" prefWidth="403.0" text="8" GridPane.columnIndex="2" GridPane.rowIndex="2">
+					<GridPane.margin>
+						<Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+					</GridPane.margin>
+					<font>
+						<Font size="18.0" />
+					</font>
+				</Button>
+				<Button fx:id="btn9" mnemonicParsing="false" prefHeight="205.0" prefWidth="451.0" text="9" GridPane.rowIndex="3">
+					<GridPane.margin>
+						<Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+					</GridPane.margin>
+					<font>
+						<Font size="18.0" />
+					</font>
+				</Button>
+				<Button fx:id="btn10" mnemonicParsing="false" prefHeight="275.0" prefWidth="482.0" text="_" GridPane.columnIndex="1" GridPane.rowIndex="3">
+					<GridPane.margin>
+						<Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+					</GridPane.margin>
+					<font>
+						<Font size="18.0" />
+					</font>
+				</Button>
+				<Button fx:id="btn11" mnemonicParsing="false" prefHeight="278.0" prefWidth="479.0" text="\@" GridPane.columnIndex="2" GridPane.rowIndex="3">
+					<GridPane.margin>
+						<Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+					</GridPane.margin>
+					<font>
+						<Font size="18.0" />
+					</font>
+				</Button>
+			</children>
+			<padding>
+				<Insets top="5.0" />
+			</padding>
+		</GridPane>
+	</center>
 </BorderPane>
