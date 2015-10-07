@@ -1,7 +1,7 @@
 package application;
 /*	Author: 陳奕呈
  * 	Student ID: 103021076
- * 	Date: 2015/09/30
+ * 	Date: 2015/10/08
  * 	Uses: JavaFX 視窗練習(Listener運用)
  *  Java JDK: 1.8
  */
