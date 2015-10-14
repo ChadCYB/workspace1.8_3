@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.collections.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.geometry.*?>
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.collections.FXCollections ?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.ex05Controller">
+	<top>
+		<GridPane BorderPane.alignment="CENTER">
+			<columnConstraints>
+				<ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+				<ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+				<ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+			</columnConstraints>
+			<rowConstraints>
+				<RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+				<RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+			</rowConstraints>
+			<children>
+				<MenuBar focusTraversable="false" GridPane.columnSpan="3">
+					<menus>
+						<Menu mnemonicParsing="false" text="File">
+							<items>
+								<MenuItem fx:id="m01" mnemonicParsing="false" onAction="#m1" text="Open" />
+                        <MenuItem fx:id="m02" mnemonicParsing="false" onAction="#m2" text="Save" />
+                        <MenuItem fx:id="m03" mnemonicParsing="false" onAction="#m3" text="Exit" />
+							</items>
+						</Menu>
+						<Menu mnemonicParsing="false" text="Help">
+							<items>
+								<MenuItem fx:id="m04" mnemonicParsing="false" onAction="#m4" text="About" />
+							</items>
+						</Menu>
+					</menus>
+				</MenuBar>
+				<ComboBox fx:id="combo1" editable="true" focusTraversable="false" onAction="#com1" prefHeight="222.0" prefWidth="500.0" promptText="新細明體" GridPane.rowIndex="1">
+					<items>
+						<FXCollections fx:factory="observableArrayList">
+							<String fx:value="新細明體" />
+							<String fx:value="標楷體" />
+							<String fx:value="微軟黑正體" />
+						</FXCollections>
+					</items>
+					<GridPane.margin>
+						<Insets left="5.0" right="5.0" />
+					</GridPane.margin>
+				</ComboBox>
+				<ComboBox fx:id="combo2" focusTraversable="false" onAction="#com2" prefHeight="222.0" prefWidth="500.0" promptText="一般" GridPane.columnIndex="1" GridPane.rowIndex="1">
+					<items>
+						<FXCollections fx:factory="observableArrayList">
+							<String fx:value="一般" />
+							<String fx:value="斜體" />
+							<String fx:value="粗體" />
+							<String fx:value="粗斜體" />
+						</FXCollections>
+					</items>
+					<GridPane.margin>
+						<Insets left="5.0" right="5.0" />
+					</GridPane.margin>
+				</ComboBox>
+				<ComboBox fx:id="combo3" editable="true" focusTraversable="false" onAction="#com3" prefHeight="222.0" prefWidth="500.0" promptText="18" GridPane.columnIndex="2" GridPane.rowIndex="1">
+					<items>
+						<FXCollections fx:factory="observableArrayList">
+							<String fx:value="8" />
+							<String fx:value="10" />
+							<String fx:value="12" />
+							<String fx:value="14" />
+							<String fx:value="16" />
+							<String fx:value="18" />
+							<String fx:value="20" />
+							<String fx:value="22" />
+							<String fx:value="24" />
+							<String fx:value="26" />
+							<String fx:value="28" />
+							<String fx:value="32" />
+							<String fx:value="40" />
+						</FXCollections>
+					</items>
+					<GridPane.margin>
+						<Insets left="5.0" right="5.0" />
+					</GridPane.margin>
+				</ComboBox>
+			</children>
+		</GridPane>
+	</top>
+	<center>
+		<TextArea fx:id="jta1" focusTraversable="false" onKeyTyped="#txtChange" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+			<BorderPane.margin>
+				<Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+			</BorderPane.margin>
+		</TextArea>
+	</center>
+	<bottom>
+		<GridPane BorderPane.alignment="CENTER">
+			<columnConstraints>
+				<ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+				<ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+			</columnConstraints>
+			<rowConstraints>
+				<RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+			</rowConstraints>
+			<children>
+				<Label fx:id="txt1" focusTraversable="false" prefHeight="1000.0" prefWidth="1000.0" style="-fx-background-color: #FF8383;" text="Label">
+					<GridPane.margin>
+						<Insets right="2.0" />
+					</GridPane.margin>
+					<padding>
+						<Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+					</padding>
+				</Label>
+				<Label fx:id="txt2" focusTraversable="false" prefHeight="1000.0" prefWidth="1000.0" style="-fx-background-color: #85ADFF;" text="Label" GridPane.columnIndex="1">
+					<GridPane.margin>
+						<Insets left="2.0" />
+					</GridPane.margin>
+					<padding>
+						<Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+					</padding>
+				</Label>
+			</children>
+		</GridPane>
+	</bottom>
+</BorderPane>
