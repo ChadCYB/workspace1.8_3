@@ -41,19 +41,33 @@ public class hw05Controller {
     private TextArea jta1;
 
     private String family,style,weight,size;
-    private File file;
+    private Color color1,color2;
+    private File file,cnfFile;
 
 	private void cssUpdate() {
 		jta1.setStyle(" -fx-font-family: " + family + ";"
 					+ " -fx-font-style: " + style + ";"
 					+ " -fx-font-weight: " + weight + ";"
-					+ " -fx-font-size: " + size + ";");
+					+ " -fx-font-size: " + size + ";"
+					+ " -fx-text-fill: " + toRgbString(color1) + ";"
+					+ " -fx-control-inner-background: " + toRgbString(color2) + ";");
 //		jta1.setFont(Font.font("Verdana", FontPosture.ITALIC, 20));
+		SaveCnfFile();						//儲存設定檔
 	}
-
+	private String toRgbString(Color c) {	//Color轉RGB
+		return "rgb(" + to255Int(c.getRed()) 
+				+ "," + to255Int(c.getGreen())
+				+ "," + to255Int(c.getBlue()) + ")";
+	}
+	private int to255Int(double d) { return (int) (d * 255); }
+	
     @FXML
     void com1(ActionEvent event) {
-    	switch(combo1.getValue()){
+    	fontSwitch(combo1.getValue());
+		cssUpdate();
+    }
+    void fontSwitch(String str){
+    	switch(str){
 			case "新細明體":
 				family = "PMingLiU";
 				break;
@@ -66,13 +80,16 @@ public class hw05Controller {
 			default:
 				family = combo1.getValue();
 				break;
-		}
-		cssUpdate();
+    	}
     }
 
     @FXML
     void com2(ActionEvent event) {
-    	switch(combo2.getValue()){
+    	styleSwitch(combo2.getValue());
+		cssUpdate();
+    }
+    void styleSwitch(String str){
+    	switch(str){
 			case "一般":
 				style = "normal";
 				weight = "normal";
@@ -89,10 +106,9 @@ public class hw05Controller {
 				style = "italic";
 				weight = "bold";
 				break;
-			}
-			cssUpdate();
+		}
     }
-
+    
     @FXML
     void com3(ActionEvent event) {
     	size = combo3.getValue();
@@ -104,7 +120,6 @@ public class hw05Controller {
     		FileChooser chooser = new FileChooser();
     		chooser.setTitle("Open File");
     		
-    		int bufSize = 0;
     		file = chooser.showOpenDialog(new Stage());
 //    		System.out.println(file.getAbsolutePath());
     		FileInputStream fileStream = new FileInputStream(file.getAbsolutePath());
@@ -148,7 +163,11 @@ public class hw05Controller {
         } catch (IOException ex) {
             ex.printStackTrace();
         }
-         
+    }
+    private void SaveCnfFile(){
+        String cnf= combo1.getValue()+"\n"+combo2.getValue()+"\n"+size+
+        			"\n"+color1.toString()+"\n"+color2.toString();
+		SaveFile(cnf,cnfFile);
     }
     @FXML
     void m3(ActionEvent event) {		//離開
@@ -200,27 +219,12 @@ public class hw05Controller {
     	//取得Dialog的Color
     	result.ifPresent(colorVal -> {
     	    System.out.println("c1=" + colorVal.getKey() + ", c2=" + colorVal.getValue());
-    	    setColor(colorVal.getKey(),colorVal.getValue());
+    	    color1 = colorVal.getKey();
+    	    color2 = colorVal.getValue();
+    	    cssUpdate();
     	});
     }
     
-	private void setColor(Color c1, Color c2) {
-		jta1.setStyle(" -fx-font-family: " + family + ";"
-					+ " -fx-font-style: " + style + ";"
-					+ " -fx-font-weight: " + weight + ";"
-					+ " -fx-font-size: " + size + ";"
-					+ " -fx-text-fill: " + toRgbString(c1) + ";"
-					+ " -fx-control-inner-background: " + toRgbString(c2) + ";");
-	}
-	private String toRgbString(Color c) {
-		return "rgb(" + to255Int(c.getRed()) 
-				+ "," + to255Int(c.getGreen())
-				+ "," + to255Int(c.getBlue()) + ")";
-	}
-	private int to255Int(double d) {
-		return (int) (d * 255);
-	}
-	
     @FXML
     void txtChange(KeyEvent event) {
 //    	System.out.println("change");
@@ -233,8 +237,48 @@ public class hw05Controller {
 		style = "normal";
 		weight = "normal";
 		size = "18";
+		color1 = Color.BLACK;
+		color2 = Color.WHITE;
 		txt2.setText("字數:"+jta1.getText().length());
 		txt1.setText("路徑:");
+		
+		try {
+			cnfFile = new File("note.cnf");
+			if(cnfFile.exists()){		//判斷檔案是否存在
+				FileInputStream fileInputStream = new FileInputStream(cnfFile.getAbsolutePath());
+	    		byte buf[] = new byte[fileInputStream.available()];
+	    		
+	    		fileInputStream.read(buf);
+	    		String arr[] = (new String(buf)).split("\n");
+	    		fileInputStream.close();
+	    		
+	    		fontSwitch(arr[0]);
+	    		styleSwitch(arr[1]);
+	    		size = arr[2];
+	    		color1 = getColor(arr[3]);
+	    		color2 = getColor(arr[4]);
+	    		
+	    		combo1.setValue(arr[0]);
+	    		combo2.setValue(arr[1]);
+	    		combo3.setValue(arr[2]);
+			}else{
+				String str ="新細明體\n一般\n12\nBLACK\nWHITE";
+				cnfFile.createNewFile();
+				SaveFile(str, cnfFile);
+			}
+		} catch (IOException e) {
+			e.printStackTrace();
+		}		
 		cssUpdate();
+	}
+	Color getColor(String str) {
+		Color color;
+		try {
+			color = Color.web(str);		//字串轉Color
+//			System.out.println(color.toString());
+		} catch (Exception e) {
+			color = null;				// Not defined
+		}
+		return color;
 	}
 }
