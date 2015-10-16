@@ -198,8 +198,8 @@ public class hw05Controller {
     	grid.setVgap(10);
     	grid.setPadding(new Insets(20, 150, 10, 10));
     	
-    	ColorPicker colorPicker1 = new ColorPicker(Color.BLACK);
-    	ColorPicker colorPicker2 = new ColorPicker(Color.WHITE);
+    	ColorPicker colorPicker1 = new ColorPicker(color1);
+    	ColorPicker colorPicker2 = new ColorPicker(color2);
     	
     	grid.add(new Label("字體色:"), 0, 0);
     	grid.add(colorPicker1, 1, 0);
@@ -236,12 +236,16 @@ public class hw05Controller {
 		family = "PMingLiU";
 		style = "normal";
 		weight = "normal";
-		size = "18";
+		size = "12";
 		color1 = Color.BLACK;
 		color2 = Color.WHITE;
+		
+		combo1.setValue("新細明體");
+		combo2.setValue("一般");
+		combo3.setValue("12");
 		txt2.setText("字數:"+jta1.getText().length());
 		txt1.setText("路徑:");
-		
+
 		try {
 			cnfFile = new File("note.cnf");
 			if(cnfFile.exists()){		//判斷檔案是否存在
@@ -262,9 +266,8 @@ public class hw05Controller {
 	    		combo2.setValue(arr[1]);
 	    		combo3.setValue(arr[2]);
 			}else{
-				String str ="新細明體\n一般\n12\nBLACK\nWHITE";
 				cnfFile.createNewFile();
-				SaveFile(str, cnfFile);
+				SaveFile("新細明體\n一般\n12\nBLACK\nWHITE", cnfFile);
 			}
 		} catch (IOException e) {
 			e.printStackTrace();
