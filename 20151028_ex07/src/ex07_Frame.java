@@ -167,8 +167,8 @@ public class ex07_Frame extends JFrame{
 						{0,1,2,5},		//7
 						{0,1,2,3,4,5,6},//8
 						{0,1,2,3,5,6}};	//9
-		int dec = num%10;		//计
-		int ten = num/10;		//计
+		int dec = num%10;			//计
+		int ten = num/10%10;		//计
 		clearNum(jbt);
 		for(int i:data[dec]){	//计
 			jbt[i+7].setVisible(true);
