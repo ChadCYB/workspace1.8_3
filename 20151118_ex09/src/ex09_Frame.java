@@ -35,7 +35,7 @@ public class ex09_Frame extends JFrame{
 	int x1,y1,x2,y2,paintType=-1;
 	
 	private void initComp(){
-		setTitle("EX08_103021076");
+		setTitle("EX09_103021076");
 		setBounds(200, 200, 900, 600);
 		this.setVisible(true);
 		this.setDefaultCloseOperation(EXIT_ON_CLOSE);
