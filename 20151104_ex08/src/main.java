@@ -1,4 +1,4 @@
-
+/* ¥[±K³ÍÂÄ¸Ñ±K¾¹*/
 public class main {
 	public static void main(String args[]){
 		ex08_Frame jframe = new ex08_Frame();

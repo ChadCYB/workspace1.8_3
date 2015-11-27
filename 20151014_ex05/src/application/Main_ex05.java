@@ -1,3 +1,4 @@
+/* Â²©ö¤å¦r½s¿è¾¹ */
 package application;
 	
 import java.net.URL;

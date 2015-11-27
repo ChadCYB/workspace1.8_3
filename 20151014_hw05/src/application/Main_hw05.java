@@ -1,3 +1,4 @@
+/* 文字編輯器(存取檔案功能) */
 package application;
 	
 import java.net.URL;
