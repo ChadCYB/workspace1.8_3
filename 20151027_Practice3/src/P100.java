@@ -3,7 +3,7 @@ public class P100 {
 
 	public static void main(String[] args) {
 		Scanner scn = new Scanner(System.in);
-		while(true){
+		while(scn.hasNextLong()){
 			long startN = scn.nextLong();
 			long endN = scn.nextLong();
 			if(startN>endN){
