@@ -4,10 +4,9 @@ import java.util.Scanner;
 public class P1070 {
 	public static void main(String[] args) {
 		Scanner scn = new Scanner(System.in);
-		int a=10;
 		ArrayList<Obj> arr = new ArrayList<Obj>();
-		while(scn.hasNext() && a>1){
-			a--;
+		while(scn.hasNext()){
+//		for(int a=0; a<7;a++){
 			String id = scn.next();
 			int a1 = scn.nextInt();
 			int a2 = scn.nextInt();
@@ -106,4 +105,22 @@ E 9 5 4
 F 4 9 5
 H 8 8 8
 I 7 8 9
+
+// test case 4
+A 7 8 9
+B 5 7 2
+C 1 2 4
+D 6 1 5
+E 9 5 4
+F 1 9 6
+G 3 6 8 
+
+A 6 7 9
+B 5 8 4
+C 4 7 5
+D 6 8 9
+E 9 4 9
+F 4 9 4
+G 3 6 4
+H 4 3 9
 */
