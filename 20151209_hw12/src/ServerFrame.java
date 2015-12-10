@@ -71,67 +71,55 @@ public class ServerFrame extends JFrame{
 		jplTop.add(jbtnConn);
 		jplTop.add(jbtnExit);
 		
-		jbtnUp.addActionListener(new ActionListener(){			//上移
-			public void actionPerformed(ActionEvent e){
-				jlbServer.setLocation(jlbServer.getX(),jlbServer.getY()-Integer.parseInt(strMove));
-				try{
-					sev.writeData("0 -"+strMove);
-				}catch(Exception ex){
-					jtArea.append("Exception:"+ex.toString()+"\n");
-				}
+		jbtnUp.addActionListener(ae -> {			//上移
+			jlbServer.setLocation(jlbServer.getX(),jlbServer.getY()-Integer.parseInt(strMove));
+			try{
+				sev.writeData("0 -"+strMove);
+			}catch(Exception ex){
+				jtArea.append("Exception:"+ex.toString()+"\n");
 			}
 		});
 		
-		jbtnDown.addActionListener(new ActionListener(){		//下移
-			public void actionPerformed(ActionEvent e){
-				jlbServer.setLocation(jlbServer.getX(),jlbServer.getY()+Integer.parseInt(strMove));
-				try{
-					sev.writeData("0 "+strMove);
-				}catch(Exception ex){
-					jtArea.append("Exception:"+ex.toString()+"\n");
-				}
+		jbtnDown.addActionListener(ae -> {		//下移
+			jlbServer.setLocation(jlbServer.getX(),jlbServer.getY()+Integer.parseInt(strMove));
+			try{
+				sev.writeData("0 "+strMove);
+			}catch(Exception ex){
+				jtArea.append("Exception:"+ex.toString()+"\n");
 			}
 		});
 		
 		
-		jbtnLeft.addActionListener(new ActionListener(){		//左移
-			public void actionPerformed(ActionEvent e){
-				jlbServer.setLocation(jlbServer.getX()-Integer.parseInt(strMove),jlbServer.getY());
-				try{
-					sev.writeData("-"+strMove+" 0");
-				}catch(Exception ex){
-					jtArea.append("Exception:"+ex.toString()+"\n");
-				}
+		jbtnLeft.addActionListener(ae -> {		//左移
+			jlbServer.setLocation(jlbServer.getX()-Integer.parseInt(strMove),jlbServer.getY());
+			try{
+				sev.writeData("-"+strMove+" 0");
+			}catch(Exception ex){
+				jtArea.append("Exception:"+ex.toString()+"\n");
 			}
 		});
 		
-		jbtnRight.addActionListener(new ActionListener(){		//右移
-			public void actionPerformed(ActionEvent e){
-				jlbServer.setLocation(jlbServer.getX()+Integer.parseInt(strMove),jlbServer.getY());
-				try{
-					sev.writeData(strMove+" 0");
-				}catch(Exception ex){
-					jtArea.append("Exception:"+ex.toString()+"\n");
-				}
+		jbtnRight.addActionListener(ae -> {		//右移
+			jlbServer.setLocation(jlbServer.getX()+Integer.parseInt(strMove),jlbServer.getY());
+			try{
+				sev.writeData(strMove+" 0");
+			}catch(Exception ex){
+				jtArea.append("Exception:"+ex.toString()+"\n");
 			}
 		});
 		
-		jbtnConn.addActionListener(new ActionListener(){		//接收連線
-			public void actionPerformed(ActionEvent e){
-				lunchServerThread();
-			}
+		jbtnConn.addActionListener(ae -> {		//接收連線
+			lunchServerThread();
 		});
 		
-		jbtnExit.addActionListener(new ActionListener(){		//結束程式
-			public void actionPerformed(ActionEvent e){
-				dispose();
-				if(sev !=null){
-					sev.closeSocket();
-				}
-				System.exit(0);
+		jbtnExit.addActionListener(ae -> {		//結束程式
+			dispose();
+			if(sev !=null){
+				sev.closeSocket();
 			}
+			System.exit(0);
 		});
-		
+
 	}
 	public void lunchServerThread(){
 		sev=new Server(this);

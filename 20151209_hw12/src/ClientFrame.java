@@ -78,69 +78,57 @@ public class ClientFrame extends JFrame {
 		jplTop.add(jbtnConn);
 		jplTop.add(jbtnExit);
 		
-		jbtnUp.addActionListener(new ActionListener(){			//上移
-			public void actionPerformed(ActionEvent e){
-				jlbLocal.setLocation(jlbLocal.getX(),jlbLocal.getY()-Integer.parseInt(strMove));
-				try{
-					client_1.writeData("0 -"+strMove);
-				}catch(Exception ex){
-					jtArea.append("Exception:"+ex.toString()+"\n");
-				}
+		jbtnUp.addActionListener( ae -> {		//上移
+			jlbLocal.setLocation(jlbLocal.getX(),jlbLocal.getY()-Integer.parseInt(strMove));
+			try{
+				client_1.writeData("0 -"+strMove);
+			}catch(Exception ex){
+				jtArea.append("Exception:"+ex.toString()+"\n");
 			}
 		});
 		
-		jbtnDown.addActionListener(new ActionListener(){		//下移
-			public void actionPerformed(ActionEvent e){
-				jlbLocal.setLocation(jlbLocal.getX(),jlbLocal.getY()+Integer.parseInt(strMove));
-				try{
-					client_1.writeData("0 "+strMove);
-				}catch(Exception ex){
-					jtArea.append("Exception:"+ex.toString()+"\n");
-				}
+		jbtnDown.addActionListener( ae -> {		//下移
+			jlbLocal.setLocation(jlbLocal.getX(),jlbLocal.getY()+Integer.parseInt(strMove));
+			try{
+				client_1.writeData("0 "+strMove);
+			}catch(Exception ex){
+				jtArea.append("Exception:"+ex.toString()+"\n");
 			}
 		});
 		
 		
-		jbtnLeft.addActionListener(new ActionListener(){		//左移
-			public void actionPerformed(ActionEvent e){
-				jlbLocal.setLocation(jlbLocal.getX()-Integer.parseInt(strMove),jlbLocal.getY());
-				try{
-					client_1.writeData("-"+strMove+" 0");
-				}catch(Exception ex){
-					jtArea.append("Exception:"+ex.toString()+"\n");
-				}
+		jbtnLeft.addActionListener( ae -> {		//左移
+			jlbLocal.setLocation(jlbLocal.getX()-Integer.parseInt(strMove),jlbLocal.getY());
+			try{
+				client_1.writeData("-"+strMove+" 0");
+			}catch(Exception ex){
+				jtArea.append("Exception:"+ex.toString()+"\n");
 			}
 		});
 		
-		jbtnRight.addActionListener(new ActionListener(){		//右移
-			public void actionPerformed(ActionEvent e){
-				jlbLocal.setLocation(jlbLocal.getX()+Integer.parseInt(strMove),jlbLocal.getY());
-				try{
-					client_1.writeData(strMove+" 0");
-				}catch(Exception ex){
-					jtArea.append("Exception:"+ex.toString()+"\n");
-				}
+		jbtnRight.addActionListener( ae -> {	//右移
+			jlbLocal.setLocation(jlbLocal.getX()+Integer.parseInt(strMove),jlbLocal.getY());
+			try{
+				client_1.writeData(strMove+" 0");
+			}catch(Exception ex){
+				jtArea.append("Exception:"+ex.toString()+"\n");
 			}
 		});
 		
-		jbtnConn.addActionListener(new ActionListener(){		//連線
-			public void actionPerformed(ActionEvent e){
-				lunchClientThread();
-			}
+		jbtnConn.addActionListener( ae -> {		//連線
+			lunchClientThread();
 		});
 		
-		jbtnExit.addActionListener(new ActionListener(){		//結束程式
-			public void actionPerformed(ActionEvent e){
-				dispose();
-				if(client_1 !=null){
-					client_1.closeSocket();						//關閉連線
-				}
-				System.exit(0);
+		jbtnExit.addActionListener( ae -> {		//結束程式
+			dispose();
+			if(client_1 !=null){
+				client_1.closeSocket();			//關閉連線
 			}
+			System.exit(0);
 		});
 		
 	}
-	public void lunchClientThread(){							//Thread開視窗
+	public void lunchClientThread(){			//Thread開視窗
 		client_1 = new Client(this);
 		client_1.start();
 	}
