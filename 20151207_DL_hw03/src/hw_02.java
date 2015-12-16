@@ -5,21 +5,20 @@ public class hw_02 {
 	}
 	
 	private static class deque{
-		int cap;
 		int flag = 0;
 		int[] arr;
 		public deque(int len){
 			arr = new int[len];
 		}
 		public void moveBack(int val){		//佇列後移
-			for(int i=flag-1 ; i>=0 ; i--){
-				arr[i] = arr[i+1];
+			for(int i=flag-2 ; i>=0 ; i--){
+				arr[i+1] = arr[i];
 			}
 			arr[0] = val;					//排入第一位置
 		}
 		public void moveForward(){			//佇列前移
 			arr[flag-1] = (Integer) null;
-			for(int i=0 ; i>flag-1 ; i--){
+			for(int i=0 ; i>flag-1 ; i++){
 				arr[i] = arr[i+1];
 			}
 		}
