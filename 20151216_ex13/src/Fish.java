@@ -19,7 +19,7 @@ public class Fish extends JLabel implements Runnable {
 		if(r == 1) this.dirFlag = false;
 		addFish();
 		
-		r1 = (int)(Math.random()*418)+1;
+		r1 = (int)(Math.random()*418);
 		System.out.println("fishID:"+r1+"|("+x+","+y+")");
 		this.setIcon(imgIcon[r][r1]);
 		this.setBounds(x,y,this.getIcon().getIconWidth(), this.getIcon().getIconHeight());
