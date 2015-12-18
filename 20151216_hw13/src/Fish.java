@@ -1,53 +1,75 @@
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
-
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
+import javax.swing.SwingConstants;
 import javax.swing.Timer;
 
-public class Fish extends JLabel implements Runnable {
-	private int frmW, frmH, x, y, r1, r, rnd;
+public class Fish extends JLabel implements Runnable{
+	private int frmW, frmH, x, y, fishID, exploID, countExp = 0;
 	private int fishNum = 418, exploNum = 3;
-	private ImageIcon[][] imgIcon = new ImageIcon[2][fishNum];
-	private ImageIcon[] exploIcon = new ImageIcon[exploNum];
-	private ImageIcon fishIcon;
-	private boolean dirFlag = true, explor = false;
+	private ImageIcon[] imgIcon = new ImageIcon[2];
+	private ImageIcon exploIcon,fishIcon;
+	private boolean leftRight=true, explo=false;
 	private Timer t1;
 
-	
 	public Fish(int h, int w) {
-		frmH = h;
-		frmW = w;
-		x = (int)(Math.random()*frmW)-50;
-		y = (int)(Math.random()*frmH)-50;
-		r = (int)(Math.random()*2);
-		if(r == 1) this.dirFlag = false;
-		addImgIcon();
+		this.frmH = h;
+		this.frmW = w;
+		this.x = (int)(Math.random()*frmW)-50;
+		this.y = (int)(Math.random()*frmH)-50;
+		this.leftRight = ((int)(Math.random()*2) == 0);
+		this.importImgIcon();
 		
-		r1 = (int)(Math.random()*fishNum);
-		rnd = (int)(Math.random()*exploNum);
-		System.out.println("fishID:"+r1+"|("+x+","+y+")");
-		fishIcon = imgIcon[r][r1];
-		this.setIcon(fishIcon);
+//		this.setBorderPainted(false);
+//		this.setContentAreaFilled(false);
+		this.setOpaque(false);
+		this.setVerticalTextPosition(SwingConstants.CENTER);
+		this.setHorizontalTextPosition(SwingConstants.CENTER);
+		
+		System.out.println("fishID:"+fishID+"|("+x+","+y+")");
+		this.fishIcon = imgIcon[(leftRight)?0:1];
+		this.iconSet();
 		this.setBounds(x,y,this.getIcon().getIconWidth(), this.getIcon().getIconHeight());
 		this.addMouseListener(new MouseAdapter(){
 			public void mousePressed(MouseEvent e) {
-		         System.out.println("Pressed");
-				fishIcon = exploIcon[rnd];
-				setIcon(fishIcon);
-				Fish.this.setLocation(x, y);
-				explor = true;
-		    }
-			public void mouseReleased(MouseEvent e) {
-		         System.out.println("Released");
-				fishIcon = imgIcon[r][r1];
-				setIcon(fishIcon);
-				explor = false;
-		    }
+				if(!explo){
+					System.out.println("Pressed");
+					System.out.println("(" + x + "," + y + ")");
+					explo = true;
+				}
+			}
+			
 		});
 	}
-
-	private void addImgIcon(){	
+	private void importImgIcon(){	
+		try{
+			fishID = (int)(Math.random()*fishNum)+1;
+			exploID = (int)(Math.random()*exploNum)+1;
+			
+			String fishL, fishR;
+			if(fishID < 10){
+				fishL = "fishL00"+fishID+".png";
+				fishR = "fishR00"+fishID+".png";
+			}else if(fishID <100){
+				fishL = "fishL0"+fishID+".png";
+				fishR = "fishR0"+fishID+".png";
+			}else{
+				fishL = "fishL"+fishID+".png";
+				fishR = "fishR"+fishID+".png";
+			}
+			imgIcon[0] = new ImageIcon("images/LeftSide/"+fishL);
+			imgIcon[1] = new ImageIcon("images/RightSide/"+fishR);
+			exploIcon = new ImageIcon("images/explosion/explosion00"+exploID+".png");
+		}catch(Exception ex){
+			ex.printStackTrace();
+		}
+	}
+	private void iconSet(){
+		this.setIcon(fishIcon);
+	}
+/*
+	private void addAllImgIcon(){	
 		String[] left = new String[fishNum];
 		String[] right = new String[fishNum];
 		String l,r,e;
@@ -70,33 +92,41 @@ public class Fish extends JLabel implements Runnable {
 			e = "explosion00"+i+".png";
 			exploIcon[i-1] = new ImageIcon("images/explosion/"+e);
 		}
-	}
+	}*/
 	@Override
 	public void run() {
-		t1 = new Timer((int)(Math.random()*1000+50), ae -> {
-			if(!explor){
-				if(Fish.this.dirFlag){
+		this.t1 = new Timer((int)(Math.random()*1000+50), ae -> {
+			if(!explo){
+				if(this.leftRight){							//¥ª´å
 					if((x-10) >0){
 						x -= 10;
 					}else{
-						Fish.this.dirFlag = !Fish.this.dirFlag;
-						r = 1;
+						this.leftRight = !this.leftRight;
+						fishIcon = imgIcon[1];
 						x += 10;
-						this.setIcon(fishIcon);
+						iconSet();
 					}
-				}else{
-					if((x+Fish.this.getIcon().getIconWidth()+20) < frmW){
+				}else{										//¥k´å
+					if((x+this.getIcon().getIconWidth()+20) < frmW){
 						x += 10;
 					}else{
-						Fish.this.dirFlag = !Fish.this.dirFlag;
-						r = 0;
+						this.leftRight = !this.leftRight;
+						fishIcon = imgIcon[0];
 						x -= 10;
-						this.setIcon(fishIcon);
+						iconSet();
 					}
 				}
-				Fish.this.setLocation(x, y);
-				System.out.println(x+":"+y);
+			}else {
+				fishIcon = exploIcon;
+				iconSet();
+				countExp++;
+				if(countExp==2){
+					this.setVisible(false);
+					t1.stop();
+				}
 			}
+			this.setLocation(x, y);
+			System.out.println(x+":"+y);
 		});
 		t1.start();
 	}

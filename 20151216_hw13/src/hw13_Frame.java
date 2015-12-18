@@ -15,7 +15,8 @@ public class hw13_Frame extends JFrame{
 	private JButton btn_Add = new JButton("Add Fish");
 	private JButton btn_Bg = new JButton("Change Background");
 	private JButton btn_Exit = new JButton("Exit");
-	private ArrayList<Fish> fishArr = new ArrayList<Fish>();
+	private static ArrayList<Fish> fishArr = new ArrayList<Fish>();
+	private static ArrayList<Fish2> fish2Arr = new ArrayList<Fish2>();
 	private ArrayList<Thread> threadArr = new ArrayList<Thread>();
 	private int Width,Height;
 	public hw13_Frame(){
