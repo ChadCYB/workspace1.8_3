@@ -9,7 +9,7 @@ public class Fish extends JLabel implements Runnable{
 	private int frmW, frmH, x, y, fishID, exploID, countExp = 0;
 	private int fishNum = 418, exploNum = 3;
 	private ImageIcon[] imgIcon = new ImageIcon[2];
-	private ImageIcon exploIcon,fishIcon;
+	private ImageIcon exploIcon,fishIcon,invisibleIcon;
 	private boolean leftRight=true, explo=false;
 	private Timer t1;
 
@@ -34,8 +34,8 @@ public class Fish extends JLabel implements Runnable{
 		this.addMouseListener(new MouseAdapter(){
 			public void mousePressed(MouseEvent e) {
 				if(!explo){
-					System.out.println("Pressed");
-					System.out.println("(" + x + "," + y + ")");
+//					System.out.println("Pressed");
+//					System.out.println("(" + x + "," + y + ")");
 					explo = true;
 				}
 			}
@@ -61,6 +61,7 @@ public class Fish extends JLabel implements Runnable{
 			imgIcon[0] = new ImageIcon("images/LeftSide/"+fishL);
 			imgIcon[1] = new ImageIcon("images/RightSide/"+fishR);
 			exploIcon = new ImageIcon("images/explosion/explosion00"+exploID+".png");
+			invisibleIcon = new ImageIcon("images/explosion/invisible.png");
 		}catch(Exception ex){
 			ex.printStackTrace();
 		}
@@ -116,17 +117,18 @@ public class Fish extends JLabel implements Runnable{
 						iconSet();
 					}
 				}
-			}else {
+			}else{
 				fishIcon = exploIcon;
 				iconSet();
 				countExp++;
 				if(countExp==2){
-					this.setVisible(false);
+					fishIcon = invisibleIcon;
+					iconSet();
 					t1.stop();
 				}
 			}
 			this.setLocation(x, y);
-			System.out.println(x+":"+y);
+//			System.out.println(x+":"+y);
 		});
 		t1.start();
 	}
