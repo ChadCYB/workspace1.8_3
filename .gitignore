@@ -5,7 +5,7 @@
 *.pydevproject
 .metadata
 .recommenders
-.zip
+*.zip
 bin/
 tmp/
 *.tmp
